@@ -14,6 +14,9 @@ public class Jarra {
 		}
 	}
 	//metodos
+	public int capacidad () {
+		return capacidad;
+	}
 	public int contenido() {
 		return contenido;
 	}
