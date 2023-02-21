@@ -7,8 +7,26 @@ public class Libro {
 	
 	public Libro (String aut, String tit, double pb) {
 		precioBase=pb;
-		autor=aut;
+		autor=conversorNombre(aut);
 		titulo=tit;
+	}
+	private String conversorNombre(String aut) {
+		String nombre="";
+		int posi=0;
+		for (int i=0; i<aut.length();i++) {
+			char c= aut.charAt(i);
+			if(c==' ' || i==aut.length()-1) {
+				String ini=Character.toString(aut.charAt(posi));
+				nombre+=ini.toUpperCase()+aut.substring(posi+1, i).toLowerCase();
+				if(!(i==aut.length()-1)) {
+					nombre+=" ";
+				}else {
+					nombre+=Character.toString(aut.charAt(aut.length()-1));
+				}
+				posi=i+1;
+			}
+		}
+		return nombre;
 	}
 	public String getAutor () {
 		return autor;
@@ -28,7 +46,7 @@ public class Libro {
 	
 	@Override
 	public String toString() {	
-		return "("+autor+"; "+titulo+"; "+Double.toString(precioBase)+"; "+Double.toString(porcIVA)+"%; "+Double.toString(getPrecioFinal());
+		return "("+autor+"; "+titulo+"; "+Double.toString(precioBase)+"; "+Double.toString(porcIVA)+"%; "+Double.toString(getPrecioFinal())+")";
 	}
 	
 	public static double getIVA() {

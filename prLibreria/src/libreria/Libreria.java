@@ -11,13 +11,10 @@ public class Libreria {
 		Libro x= new Libro (na, tit, pb);
 		anyadirLibro(x);
 	}
-	protected void anyadirLibro (Libro x) {
-		libs.add(x);
-	}
 	public void remLibro (String aut, String tit) {
 		int pos= buscarLibro(aut, tit);
 		if(pos<0) {
-			throw RuntimeException ("Libro no encontrado ("+aut+", "+tit+")")
+			throw new RuntimeException ("Libro no encontrado ("+aut+", "+tit+")");
 		}else {
 			libs.remove(pos);
 		}
@@ -25,8 +22,48 @@ public class Libreria {
 	private int buscarLibro (String aut, String tit) {
 		int pos=-1;
 		for(int i=0; i<(libs.size()) && pos<0 ;i++) {
-			pos=i;
+			Libro l=libs.get(i);
+			if(l.getAutor().toUpperCase().equals(aut.toUpperCase()) && l.getTitulo().toLowerCase().equals(tit.toLowerCase())) {
+				pos=i;
+			}
+			
 		}
 		return pos;
+	}
+	public double getPrecioFinal (String aut, String tit) {
+		int pos= buscarLibro(aut, tit);
+		double preci=0;
+		if(pos<0) {
+			throw new RuntimeException ("Libro no encontrado ("+aut+", "+tit+")");
+		}else {
+			Libro l = libs.get(pos);
+			preci=l.getPrecioFinal();
+		}
+		return preci;
+	}
+	
+	@Override
+	public String toString () {
+		String cad="[";
+		for (int i =0; i<libs.size(); i++) {
+			Libro l= libs.get(i);
+			cad+=l.toString();
+			if(!(i==libs.size()-1)) {
+				cad+=", ";
+			}	
+		}
+		cad+="]";
+		return cad;
+	}
+	protected void anyadirLibro (Libro libro) {
+		String aut= libro.getAutor();
+		String tit= libro.getTitulo();
+		int pos= buscarLibro(aut, tit);
+		if(pos<0) {
+			libs.add(libro);
+		}else {
+			libs.remove(pos);
+			libs.add(pos,libro);
+		}
 	}
 }
