@@ -1,8 +1,8 @@
 package jarras;
 
 public class Mesa {
-	Jarra jarra1;
-	Jarra jarra2;
+	private Jarra jarra1;
+	private Jarra jarra2;
 	//----------------------
 	public Mesa (int uno, int dos){
 		jarra1= new Jarra(uno);
