@@ -7,10 +7,10 @@ public class Libro {
 	
 	public Libro (String aut, String tit, double pb) {
 		precioBase=pb;
-		autor=conversorNombre(aut);
+		autor=aut;
 		titulo=tit;
 	}
-	private String conversorNombre(String aut) {
+	/*private String conversorNombre(String aut) {
 		String nombre="";
 		int posi=0;
 		for (int i=0; i<aut.length();i++) {
@@ -27,7 +27,7 @@ public class Libro {
 			}
 		}
 		return nombre;
-	}
+	}*/
 	public String getAutor () {
 		return autor;
 	}

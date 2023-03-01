@@ -1,6 +1,6 @@
 import libreria.*;
 
-public class prueba {
+public class PruebaLibreria {
 	private static void show (String aut, String tit, Libreria libreria) {
 		
 		System.out.println("PrecioFinal("+aut+", "+tit+"): "+Double.toString(libreria.getPrecioFinal(aut, tit)));
