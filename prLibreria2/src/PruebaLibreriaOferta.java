@@ -1,14 +1,15 @@
 import libreria.*;
 
-public class PruebaLibreria {
+public class PruebaLibreriaOferta {
 	private static void show (String aut, String tit, Libreria libreria) {
-		
 		System.out.println("PrecioFinal("+aut+", "+tit+"): "+Double.toString(libreria.getPrecioFinal(aut, tit)));
 	}
 	public static void main(String [] args) {
-		Libreria libreria=new Libreria();
 		
-		libreria.addLibro("george orwell","1984",8.20);
+		LibreriaOferta libreria=new LibreriaOferta(20, new String[] {"George Orwell", "Isaac Asimov"});
+		//añadir libros
+		
+		libreria.addLibro("george orwell", "1984", 8.20);
 		libreria.addLibro("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?", 3.50);
 		libreria.addLibro("Isaac Asimov", "Fundación e Imperio", 9.40);
 		libreria.addLibro("Ray Bradbury", "Fahrenheit 451", 7.40);
@@ -20,17 +21,17 @@ public class PruebaLibreria {
 		libreria.addLibro("George Orwell", "1984", 6.20);
 		libreria.addLibro("Isaac Newton", "Arithmetica Universalis", 10.50);
 		
-		String cad= libreria.toString();
-		System.out.println(cad);
+		System.out.println(libreria.toString());
+		
+		//borrar libros
 		
 		libreria.remLibro("George Orwell", "1984");
 		libreria.remLibro("Aldous Huxley", "Un Mundo Feliz");
 		libreria.remLibro("Isaac Newton", "Arithmetica Universalis");
 		
-		cad= libreria.toString();
-		System.out.println(cad);
+		System.out.println(libreria.toString());
 		
-		//Al enseñar el precio final no tiene en cuenta el descuento vd?
+		//Precio final: Cuando llamo getPrecioFinal llama al metodo de Libreria, pero segun sea libroOferta o Libro, va a ejecutar un BaseImponible u otra.
 		show("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?", libreria);
 		show("isaac asimov", "fundación e imperio", libreria);
 		show("Ray Bradbury", "Fahrenheit 451", libreria);
@@ -40,6 +41,6 @@ public class PruebaLibreria {
 		show("Isaac Newton", "Arithmetica Universalis", libreria);
 		
 		
-		
+
 	}
 }

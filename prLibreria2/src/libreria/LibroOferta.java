@@ -2,7 +2,6 @@ package libreria;
 
 public class LibroOferta extends Libro {
 	private double porcDescuento;
-	private String[] autoresOferta;
 	
 	public LibroOferta (String aut, String tit, double pb, double desc){
 		super(aut, tit, pb);
@@ -18,7 +17,6 @@ public class LibroOferta extends Libro {
 	
 	@Override
 	public String toString () {
-		return "("+getAutor()+"; "+getTitulo()+"; "+Double.toString(super.getPrecioBase())+"; "+Double.toString(porcDescuento)+"%; "+Double.toString(getBaseImponible())+"; "+Double.toString(super.getIVA())+"%; "+Double.toString(getPrecioFinal())+")";
+		return "("+getAutor()+"; "+getTitulo()+"; "+Double.toString(getPrecioBase())+"; "+Double.toString(porcDescuento)+"%; "+Double.toString(getBaseImponible())+"; "+Double.toString(getIVA())+"%; "+Double.toString(getPrecioFinal())+")";
 	}
 }
-	
