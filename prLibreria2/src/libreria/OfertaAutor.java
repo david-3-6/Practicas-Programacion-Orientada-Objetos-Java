@@ -11,15 +11,15 @@ public class OfertaAutor implements OfertaFlex {
 	public double getDescuento(Libro lib) {
 		double desc=0;
 		int pos=buscarAutorOferta(lib.getAutor());
-		if((pos>0)&&(lib instanceof LibroOferta)) {
-			desc=((LibroOferta)lib).getDescuento();
+		if(pos>=0) {
+			desc=porcDescuento;
 		}
 		return desc;
 	}
 	private int buscarAutorOferta (String aut) {
 		int pos=-1;
 		for(int i=0; i<autoresOferta.length && pos<0;i++) {
-			if(autoresOferta[i].toUpperCase().equals(aut)) {
+			if(autoresOferta[i].toUpperCase().equals(aut.toUpperCase())) {
 				pos=i;
 			}
 		}
@@ -27,6 +27,14 @@ public class OfertaAutor implements OfertaFlex {
 	}
 	@Override
 	public String toString() {
-		return Double.toString(porcDescuento)+"%"+autoresOferta.toString();
+		String cad="[";
+		for(int i=0; i<autoresOferta.length;i++) {
+			cad+=autoresOferta[i];
+			if(i<autoresOferta.length-1) {
+				cad+=", ";
+			}
+		}
+		cad+="]";
+		return Double.toString(porcDescuento)+"%"+cad;
 	}
 }

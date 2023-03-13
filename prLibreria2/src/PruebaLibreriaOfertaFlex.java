@@ -1,15 +1,13 @@
 import libreria.*;
 
-public class PruebaLibreriaOferta {
+public class PruebaLibreriaOfertaFlex {
 	private static void show (String aut, String tit, Libreria libreria) {
 		System.out.println("PrecioFinal("+aut+", "+tit+"): "+Double.toString(libreria.getPrecioFinal(aut, tit)));
 	}
 	public static void main(String [] args) {
+		LibreriaOfertaFlex libreria= new LibreriaOfertaFlex(new OfertaAutor(20,new String[] {"George Orwell","Isaac Asimov"}));
 		
-		LibreriaOferta libreria=new LibreriaOferta(20, new String[] {"George Orwell", "Isaac Asimov"});
-		//añadir libros
-		
-		libreria.addLibro("george orwell", "1984", 8.20);
+		libreria.addLibro("george orwell","1984",8.20);
 		libreria.addLibro("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?", 3.50);
 		libreria.addLibro("Isaac Asimov", "Fundación e Imperio", 9.40);
 		libreria.addLibro("Ray Bradbury", "Fahrenheit 451", 7.40);
@@ -22,8 +20,6 @@ public class PruebaLibreriaOferta {
 		libreria.addLibro("Isaac Newton", "Arithmetica Universalis", 10.50);
 		
 		System.out.println(libreria.toString());
-		
-		//borrar libros
 		
 		libreria.remLibro("George Orwell", "1984");
 		libreria.remLibro("Aldous Huxley", "Un Mundo Feliz");
@@ -39,7 +35,5 @@ public class PruebaLibreriaOferta {
 		show("Isaac Asimov", "Segunda Fundación", libreria);
 		show("Isaac Newton", "Arithmetica Universalis", libreria);
 		
-		
-
 	}
 }

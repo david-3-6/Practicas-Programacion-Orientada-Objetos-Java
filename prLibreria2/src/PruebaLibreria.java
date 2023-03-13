@@ -30,7 +30,6 @@ public class PruebaLibreria {
 		cad= libreria.toString();
 		System.out.println(cad);
 		
-		//Al enseñar el precio final no tiene en cuenta el descuento vd?
 		show("Philip K. Dick", "¿Sueñan los androides con ovejas eléctricas?", libreria);
 		show("isaac asimov", "fundación e imperio", libreria);
 		show("Ray Bradbury", "Fahrenheit 451", libreria);
