@@ -1,6 +1,6 @@
-package datos;
+package datos2;
 
-public class DatosException extends RuntimeException {
+public class DatosException extends Exception {
 	public DatosException() {
 		super();
 	}

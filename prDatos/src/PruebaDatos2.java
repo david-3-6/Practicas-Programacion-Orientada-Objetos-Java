@@ -1,6 +1,6 @@
-import datos.*;
+import datos2.*;
 import java.util.Arrays;
-public class PruebaDatos {
+public class PruebaDatos2 {
 	public static void main (String[] args) {
 		try {
 			if(args.length<3) {

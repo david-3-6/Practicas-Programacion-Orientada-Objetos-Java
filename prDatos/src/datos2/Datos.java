@@ -1,4 +1,4 @@
-package datos;
+package datos2;
 import java.util.List;
 import java.util.ArrayList;
 public class Datos {
@@ -19,7 +19,7 @@ public class Datos {
 			}
 		}
 	}
-	public double calcMedia() {
+	public double calcMedia () throws DatosException {
 		int cont=0;
 		double res=0;
 		for(int i=0; i<datos.size();i++) {
@@ -36,7 +36,7 @@ public class Datos {
 		}
 		return res;
 	}
-	public double calcDesvTipica() {
+	public double calcDesvTipica() throws DatosException {
 		double media=calcMedia();
 		int cont=0;
 		double res=0;
@@ -50,7 +50,7 @@ public class Datos {
 		
 		return Math.sqrt(res/cont);
 	}
-	public void setRango(String rang) {
+	public void setRango(String rang) throws DatosException {
 		
 		try {
 			int c=rang.indexOf(';');
@@ -85,17 +85,13 @@ public class Datos {
 		return errores;
 	}
 	@Override
-	public String toString () {
-		boolean hacer=true;
+	public String toString (){
 		String cad="Min: "+Double.toString(min)+", Max: "+Double.toString(max)+", "+datos.toString()+", "+errores.toString()+", Media: ";
 		try {
 			cad+=Double.toString(calcMedia())+", DesvTipica: ";
+			cad+=Double.toString(calcDesvTipica());
 		}catch (DatosException e){
 			cad+="ERROR, DesvTipica: ERROR";
-			hacer=false;
-		}
-		if(hacer) {
-			cad+=Double.toString(calcDesvTipica());
 		}
 		
 		return cad;
